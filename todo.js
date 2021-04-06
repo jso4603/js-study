@@ -5,7 +5,7 @@ const TO_DO_FORM = document.querySelector('.js-todo__form'),
 const TO_DO_LIST_LOCALSTORAGE = "TO_DO_LIST";
 
 let TO_DO_ARRAY = [];
-let TO_DO_ID_NUMBER = 1; 
+let TO_DO_ID_NUMBER = 1; // To_DO_ID 초기화 넘버
 
 // todo 삭제 함수
 function deleteToDo(clicked) {
