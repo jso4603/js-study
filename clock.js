@@ -21,6 +21,7 @@ function formatTime(hms) {
     }
 };
 
+// 초기화 함수
 function init() {
     setInterval(getTime,1);
 };
