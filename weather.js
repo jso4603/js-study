@@ -10,13 +10,11 @@ function getWeather(latitude, longitude) {
     ).then(function(response) {
         return response.json();
     }).then(function(json) {
-        const TEMPERATURE = Math.round(json.main.temp);
+        const TEMPERATURE = Math.round(json.main.temp); // 소수점 반올림
         const PLACE = json.name;
         const WEATHER_INFO = json.weather[0].main;
         
-        WEATHER_SPAN.innerText = `TEMPERATURE : ${TEMPERATURE} ℃
-        PLACE : ${PLACE}
-        WEATHER : ${WEATHER_INFO}`
+        WEATHER_SPAN.innerText = `${TEMPERATURE} ℃ | ${PLACE} | ${WEATHER_INFO}`
     });
 }
 

@@ -1,6 +1,6 @@
 const BODY = document.querySelector('body');
 
-const BACKGROUND_IMG_NUMBER = 5;
+const BACKGROUND_IMG_NUMBER = 3;
 
 function getRandomNumber() {
     const NUMBER = Math.floor(Math.random() * BACKGROUND_IMG_NUMBER + 1);
