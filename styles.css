@@ -12,14 +12,25 @@ body ul {
     all: unset;
 }
 
+body li {
+    animation: fadeIn 2s ease-in-out;
+}
+
 body button {
     all: unset;
+    font-size: 20px;
+    margin-left: 10px;
 }
 
 input {
+    font-family: 'Dela Gothic One', cursive;
+    font-family: 'Nanum Pen Script', cursive;
     background: transparent;
     border: none;
-    border-bottom: 2px rgba(255, 255, 255, 0.7) solid;
+    border-bottom: 2px rgba(255, 255, 255, 1) solid;
+    color: white;
+    font-size: 50px;
+    text-align: center;
 }
 
 input::placeholder {
@@ -30,13 +41,17 @@ input::placeholder {
     text-align: center;
 }
 
+input:focus {
+    outline: none;
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
 .form,
 .title {
     display: none;
-}
-
-.showing {
-    display: block;
 }
 
 @keyframes fadeIn {
@@ -48,6 +63,11 @@ input::placeholder {
     }
 }
 
+.showing {
+    display: block;
+    animation: fadeIn 2s ease-in-out;
+}
+
 .backGroundImage {
     position: absolute;
     top: 0;
@@ -55,19 +75,25 @@ input::placeholder {
     height: 100%;
     width: 100%;
     z-index: -1;
-    animation: fadeIn 0.5s ease-in-out;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.top-row {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .js-weather {
-    display: block;
-    text-align: end;
     font-size: 30px;
     font-weight: bold;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .js-clock {
     display: flex;
     justify-content: center;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .js-clock h1 {
@@ -80,21 +106,40 @@ input::placeholder {
 
 .js-greeting__div {
     display: flex;
+    justify-content: center;
     align-items: center;
     margin-bottom: 50px;
 }
 
+.js-greeting__title {
+    font-size: 50px;
+    margin: 0px;
+}
+
 .js-greeting__div input {
-    height: 100px;
-    width: 1920px;
+    height: 80px;
+    width: 500px;
 }
 
 .js-todo__div {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .js-todo__div input {
-    height: 100px;
-    width: 1920px;
+    height: 80px;
+    width: 500px;
+}
+
+.js-list__div {
+    display: flex;
+    justify-content: center;
+}
+
+.js-todo__list {
+    display: block;
+    font-size: 30px;
 }
