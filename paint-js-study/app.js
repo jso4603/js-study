@@ -1,6 +1,8 @@
 const canvas = document.getElementById('js-canvas');
 const ctx = canvas.getContext('2d');
 const colors = document.getElementsByClassName('js-color');
+const range = document.getElementById('js-range');
+const mode = document.getElementById('js-mode');
 
 // canvas modifer의 width와 height을 따로 설정해줘야 색칠이 됨.
 canvas.width = 700;
@@ -10,6 +12,7 @@ ctx.strokeStyle = '#2d3436';
 ctx.lineWidth = 2.5;
 
 let painting = false;
+let filling = false;
 
 //  캔버스 색칠 중지
 function stopPainting() {
@@ -39,9 +42,27 @@ function onMouseMove(event) {
     }
 }
 
+// click된 color로 stroke의 color를 변경
 function handleColor(event) {
     const color = event.target.style.backgroundColor;
     ctx.strokeStyle = color;
+}
+
+// range의 value로 stroke의 lineWidth를 변경
+function handleRange(event) {
+    const width = event.target.value;
+    ctx.lineWidth = width;
+}
+
+// Fill Mode 와 Paint Mode로 button Toggle
+function handleMode(event) {
+    if (filling) {
+        filling = false;
+        mode.innerText = 'Fill';
+    } else {
+        filling = true;
+        mode.innerText = 'Paint';
+    }
 }
 
 if (canvas) {
@@ -52,4 +73,14 @@ if (canvas) {
 }
 
 // Array.from(colors) : colors object를 배열 형태로 바꿔줌.
-Array.from(colors).forEach(color => color.addEventListener('click', handleColor));
+if (colors) {
+    Array.from(colors).forEach(color => color.addEventListener('click', handleColor));
+}
+
+if (range) {
+    range.addEventListener('input', handleRange);
+}
+
+if (mode) {
+    mode.addEventListener('click', handleMode);
+}
