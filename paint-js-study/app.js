@@ -9,6 +9,8 @@ canvas.width = 700;
 canvas.height = 700;
 
 ctx.strokeStyle = '#2d3436';
+ctx.fillStyle = white;
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 ctx.lineWidth = 2.5;
 
 let painting = false;
@@ -42,10 +44,11 @@ function onMouseMove(event) {
     }
 }
 
-// click된 color로 stroke의 color를 변경
+// click된 color로 stroke과 fill의 style color를 변경
 function handleColor(event) {
     const color = event.target.style.backgroundColor;
     ctx.strokeStyle = color;
+    ctx.fillStyle = color;
 }
 
 // range의 value로 stroke의 lineWidth를 변경
@@ -54,7 +57,7 @@ function handleRange(event) {
     ctx.lineWidth = width;
 }
 
-// Fill Mode 와 Paint Mode로 button Toggle
+// Fill Mode 와 Paint Mode로 button toggle
 function handleMode(event) {
     if (filling) {
         filling = false;
@@ -65,11 +68,19 @@ function handleMode(event) {
     }
 }
 
+// 캔버스 클릭 시
+function handleCanvasClick() {
+    if (filling) {
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+}
+
 if (canvas) {
     canvas.addEventListener('mousemove', onMouseMove);
     canvas.addEventListener('mouseup', stopPainting);
     canvas.addEventListener('mousedown', startPainting);
     canvas.addEventListener('mouseleave', stopPainting);
+    canvas.addEventListener('click', handleCanvasClick);
 }
 
 // Array.from(colors) : colors object를 배열 형태로 바꿔줌.
