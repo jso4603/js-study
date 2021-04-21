@@ -3,13 +3,14 @@ const ctx = canvas.getContext('2d');
 const colors = document.getElementsByClassName('js-color');
 const range = document.getElementById('js-range');
 const mode = document.getElementById('js-mode');
+const save = document.getElementById('js-save');
 
 // canvas modifer의 width와 height을 따로 설정해줘야 색칠이 됨.
 canvas.width = 700;
 canvas.height = 700;
 
 ctx.strokeStyle = '#2d3436';
-ctx.fillStyle = white;
+ctx.fillStyle = 'white';
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 ctx.lineWidth = 2.5;
 
@@ -51,6 +52,18 @@ function handleColor(event) {
     ctx.fillStyle = color;
 }
 
+// 캔버스 클릭 시
+function handleCanvasClick() {
+    if (filling) {
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+}
+
+// 캔버스 우 클릭 시
+function handleContextMenu(event) {
+    event.preventDefault();
+}
+
 // range의 value로 stroke의 lineWidth를 변경
 function handleRange(event) {
     const width = event.target.value;
@@ -68,11 +81,18 @@ function handleMode(event) {
     }
 }
 
-// 캔버스 클릭 시
-function handleCanvasClick() {
-    if (filling) {
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-    }
+// Save Button 클릭 시
+function handleSave(event) {
+    // Canvas의 DataURL을 가져온다.
+    const imageURL = canvas.toDataURL();
+    // 임시링크로써 anchor element를 만들어준다.
+    const link = document.createElement('a');
+    // 하이퍼링크에 URL을 넣는다.
+    link.href = imageURL;
+    // download로 download시 저장 될 이름을 설정한다.
+    link.download = 'paintJS[👨‍🎨]';
+    // 링크를 클릭한다.
+    link.click();
 }
 
 if (canvas) {
@@ -81,9 +101,10 @@ if (canvas) {
     canvas.addEventListener('mousedown', startPainting);
     canvas.addEventListener('mouseleave', stopPainting);
     canvas.addEventListener('click', handleCanvasClick);
+    canvas.addEventListener('contextmenu', handleContextMenu);
 }
 
-// Array.from(colors) : colors object를 배열 형태로 바꿔줌.
+// Array.from() : object를 배열 형태로 바꿔줌.
 if (colors) {
     Array.from(colors).forEach(color => color.addEventListener('click', handleColor));
 }
@@ -94,4 +115,8 @@ if (range) {
 
 if (mode) {
     mode.addEventListener('click', handleMode);
+}
+
+if (save) {
+    save.addEventListener('click', handleSave);
 }
