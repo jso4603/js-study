@@ -1,1 +1,7 @@
 .DS_Store
+/js-challenge/challenge1/.cache
+/js-challenge/challenge1/dist
+/js-challenge/challenge1/node_modules
+/js-challenge/challenge1/package-lock.json
+/js-challenge/challenge1/package.json
+
