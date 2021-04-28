@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Parcel Sandbox</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="src/style.css" />
+    </head>
+
+    <body>
+        <h1>Random Number Game</h1>
+        <h2>Generate a number between 0 and <span id="range-max">50</span></h2>
+
+        <input type="range" min="0" max="100" value="50" step="1" class="slider" id="insert-range" />
+        <div class="insert-div">
+            <form id="insert-form">
+                <span class="insert-div__title">Guess the number : </span>
+                <input type="number" max="100" class="insert-div__number" id="insert-number" placeholder="0" required />
+                <button class="insert-div__btn" id="insert-btn">Play!</button>
+            </form>
+        </div>
+        <div class="result-div">
+            <div class="result-div__chose">
+                <span id="you-chose"></span>
+                <span id="machine-chose"></span>
+            </div>
+            <span id="result-win"></span>
+        </div>
+        <script src="src/index.js"></script>
+    </body>
+</html>
