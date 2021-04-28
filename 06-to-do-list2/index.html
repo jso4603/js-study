@@ -3,24 +3,28 @@
     <head>
         <title>Parcel Sandbox</title>
         <meta charset="UTF-8" />
-        <style>
-            body {
-                font-family: sans-serif;
-            }
-        </style>
+        <link rel="stylesheet" href="src/style.css" />
     </head>
 
     <body>
-        <h1>Tasks</h1>
+        <h1 class="task-title">📋 Tasks 📋</h1>
         <form id="add-form">
-            <input id="add-input" type="text" placeholder="Add task" />
+            <div class="task-input__group">
+                <input type="text" class="task-input" placeholder="Add task" id="add-input" name="add-input" required />
+                <label for="add-input" class="add__label">Add Task</label>
+            </div>
         </form>
 
-        <h2>Pending</h2>
-        <ul id="pending-list"></ul>
-
-        <h2>Finished</h2>
-        <ul id="finished-list"></ul>
+        <div class="task-list">
+            <h2 class="task-pending__title">Pending</h2>
+            <div class="task-list__pending">
+                <ul id="pending-list"></ul>
+            </div>
+            <h2 class="task-finished__title">Finished</h2>
+            <div class="task-list__finished">
+                <ul id="finished-list"></ul>
+            </div>
+        </div>
 
         <script src="src/index.js"></script>
     </body>

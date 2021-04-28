@@ -1,0 +1,140 @@
+@import url(reset.css);
+
+:root {
+    --primary: #11998e;
+    --black: #222222;
+    --white: #fff;
+    --gray: #9b9b9b;
+    --secondary: #38ef7d;
+}
+
+/* 한불 정부 타자기체 */
+@font-face {
+    font-family: 'KoreanFrenchTypewriter';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/KoreanFrenchTypewriter.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'KoreanFrenchTypewriter';
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--gray);
+    background-color: var(--black);
+}
+
+.task-title {
+    font-size: 50px;
+    margin: 100px 0px;
+}
+
+.task-input__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-bottom: 100px;
+}
+
+.task-input {
+    font-family: inherit;
+    width: 50vw;
+    border: 0;
+    border-bottom: 2px solid var(--gray);
+    outline: 0;
+    font-size: 2rem;
+    color: var(--white);
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.task-input::placeholder {
+    color: transparent;
+}
+
+.task-input:placeholder-shown ~ .add__label {
+    font-size: 2rem;
+    cursor: text;
+    top: 20px;
+}
+
+.add__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: var(--gray);
+}
+
+.task-input:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, var(--primary), var(--secondary));
+    border-image-slice: 1;
+}
+
+.task-input:focus ~ .add__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+/* reset input */
+.task-input:required,
+.task-input:invalid {
+    box-shadow: none;
+}
+
+.task-list {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.task-list .task-list__pending,
+.task-list .task-list__finished {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+ul {
+    font-size: 25px;
+}
+
+li {
+    color: var(--white);
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+li span {
+    width: 100%;
+    text-align: end;
+}
+
+button {
+    font-size: 20px;
+    text-align: center;
+    width: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    outline: none;
+    margin: 0px 20px;
+}
+
+h2 {
+    font-size: 30px;
+    margin: 30px 0px;
+}
