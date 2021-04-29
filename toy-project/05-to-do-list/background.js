@@ -1,6 +1,6 @@
 const BODY = document.querySelector('body');
 
-const BACKGROUND_IMG_NUMBER = 3;
+const BACKGROUND_IMG_NUMBER = 5;
 
 function getRandomNumber() {
     const NUMBER = Math.floor(Math.random() * BACKGROUND_IMG_NUMBER + 1);
@@ -15,12 +15,12 @@ function handleImageLoad(backgroundImage) {
 function paintBackgroundImage(imageNumber) {
     const BACKGROUND_IMAGE = new Image();
     BACKGROUND_IMAGE.src = `js-backgrounds/background${imageNumber}.jpg`;
-    BACKGROUND_IMAGE.addEventListener("load",handleImageLoad(BACKGROUND_IMAGE));   
+    BACKGROUND_IMAGE.addEventListener('load', handleImageLoad(BACKGROUND_IMAGE));
 }
 
 function init() {
     const randomNumber = getRandomNumber();
     paintBackgroundImage(randomNumber);
-};
+}
 
 init();
