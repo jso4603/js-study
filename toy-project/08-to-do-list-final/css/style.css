@@ -1,0 +1,195 @@
+@import url(reset.css);
+
+:root {
+    --grey: #aaaaaa;
+    --navy: #02008a;
+    --yellow: #dadd2a;
+    --div-padding: 5px;
+    --border: 2px solid #7c7878;
+}
+
+@font-face {
+    font-family: 'DOSMyungjo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSMyungjo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'DOSMyungjo';
+    padding: 20px;
+    background-color: var(--grey);
+    letter-spacing: 2px;
+}
+
+.header-div__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--div-padding);
+    background-color: var(--navy);
+    color: rgba(209, 203, 203, 0.884);
+}
+
+.header-div__title-left {
+    display: flex;
+    align-items: center;
+}
+
+.title-left__keyboard {
+    margin: 0px 10px;
+    font-size: 20px;
+}
+
+.title-right__x {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-right__x button {
+    width: 22px;
+    display: flex;
+    justify-content: center;
+    background-color: var(--grey);
+    outline: none;
+}
+
+.header-div__score {
+    display: flex;
+    height: 25px;
+    padding: 0px var(--div-padding);
+    border: var(--border);
+    font-size: 18px;
+}
+
+.header-div__score-left,
+.header-div__score-center,
+.header-div__score-right {
+    display: flex;
+    align-items: center;
+    border-right: var(--border);
+}
+
+.header-div__score-left span:first-child {
+    margin-left: 10px;
+}
+
+.header-div__score-left span:nth-child(2) {
+    margin: 0px 20px;
+}
+
+.header-div__score-left span:last-child {
+    margin-left: 20px;
+    margin-right: 5px;
+}
+
+.header-div__score-center {
+    width: 200px;
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+
+.header-div__score-center span:first-child {
+    color: var(--yellow);
+}
+
+.header-div__score-right {
+    padding: 0px 10px;
+}
+
+.header-div__score-right span {
+    color: #02008a;
+    margin-right: 5px;
+}
+
+.header-div__score-right div {
+    height: 18px;
+    width: 9px;
+    border: 1px solid rgba(165, 162, 162, 0.973);
+}
+
+.header-div__score-right div:nth-of-type(1),
+.header-div__score-right div:nth-of-type(2),
+.header-div__score-right div:nth-of-type(3),
+.header-div__score-right div:nth-of-type(4),
+.header-div__score-right div:nth-of-type(5),
+.header-div__score-right div:nth-of-type(6) {
+    background-color: #a50500;
+}
+
+.header-div__score-right div:nth-of-type(7),
+.header-div__score-right div:nth-of-type(8),
+.header-div__score-right div:nth-of-type(9),
+.header-div__score-right div:nth-of-type(10),
+.header-div__score-right div:nth-of-type(11),
+.header-div__score-right div:nth-of-type(12) {
+    background-color: var(--navy);
+}
+
+.header-div__score-right div:nth-of-type(13),
+.header-div__score-right div:nth-of-type(14),
+.header-div__score-right div:nth-of-type(15),
+.header-div__score-right div:nth-of-type(16),
+.header-div__score-right div:nth-of-type(17) {
+    background-color: var(--yellow);
+}
+
+.main-div {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    font-family: 'DOSMyungjo';
+    width: 230px;
+    padding: 0px 10px;
+    font-size: 20px;
+    border: var(--border);
+    outline: none;
+}
+
+.input-div {
+    display: flex;
+    justify-content: center;
+}
+
+.info-div {
+    display: flex;
+    justify-content: space-between;
+    height: 25px;
+    padding: 0px var(--div-padding);
+    border: var(--border);
+    font-size: 18px;
+}
+
+.info-div__left,
+.info-div__center,
+.info-div__right {
+    display: flex;
+    align-items: center;
+}
+
+.info-div__left {
+    justify-content: center;
+    border-right: var(--border);
+    padding-right: 10px;
+}
+
+.info-div__center {
+    width: 80%;
+    justify-content: space-between;
+}
+
+.info-div__right {
+    border-left: var(--border);
+    padding-left: 10px;
+}
