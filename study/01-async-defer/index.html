@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <!-- 4. head에 defer script js -->
+        <script defer src="main.js"></script>
+        <!-- 순서 : parsing html -> parsing html, fetching js -> executing js -->
+        <!-- 설명 : html을 parsing하다가 defer를 만나면 fetching js를 동시에 진행-->
+        <!--       html parsing이 다 끝난 후에 executing js를 진행-->
+        <!-- 장점 : 가장 좋은 옵션. fetching js도 동시에 하면서 페이지를 보여준 다음에 js를 executing 하기 때문  -->
+        <!--       정의한 순서대로 js를 executing 함(a.js 실행 -> b.js 실행 -> c.js 실행)-->
+
+        <!-- 3. head에 async script js -->
+        <!-- <script async src="main.js"></script> -->
+        <!-- 순서 : parsing html -> parsing html, fetching js(동시) -> executing js -> parsing html -->
+        <!-- 설명 : async는 boolean 타입으로 기본값이 true -->
+        <!--       broswer가 html을 parsing하다가 async를 만나면 js를 병렬적으로(동시에) fetching -->
+        <!--       fetching이 끝나면 parsing을 멈추고 js를 executing 하고 그 다음 마저 html을 parsing -->
+        <!-- 장점 : js 다운로드 시간 단축  -->
+        <!-- 단점 : html이 전부 parsing 되기 전에 js가 실행되기 때문에 js에서 가르키는 html요소가 없을 수 있음  -->
+        <!--       js를 executing 할때 html이 parsing을 멈추기 때문에 여전히 시간이 더 걸릴 수 있음 -->
+        <!--       script 정의 순서와 상관없이 fetching되는 대로 js를 executing 하기 때문에 -->
+        <!--       js가 순서대로 의존적이라면 (ex a.js -> b.js -> c.js) 오류 가능성 있음 -->
+
+        <!-- 1. head에 js script 삽입 -->
+        <!-- <script src="main.js"></script> -->
+        <!-- 순서 : parsing html -> fetching js -> executing js -> parsing html -->
+        <!-- 설명 : browser가 한 줄 한 줄 씩 html을 parsing(분석) 하다가 script 태그를 만나면 -->
+        <!--       parsing을 멈추고 server로부터 js를 fetching(가져오다) 하고 excuting(실행) 한다 -->
+        <!-- 단점 : js가 크면 웹사이트를 보는 데 까지 많은 시간이 소요 -->
+    </head>
+    <body>
+        <div></div>
+        <!-- 2. body 가장 아래에 js script -->
+        <!-- <script src="main.js"></script> -->
+        <!-- 순서 : parsing html -> fetching js -> executing js -->
+        <!-- 설명 : browser가 html을 다 parsing 한 다음 js를 fetching하고 executing 함 -->
+        <!-- js를 받기 전에도 사용자가 페이지를 볼 수 있음 -->
+        <!-- 단점 : 웹사이트가 js에 굉장히 의존적이라면(서버에서 데이터를 받아와야함,DOM요소를 더 이쁘게 꾸며줌) -->
+        <!-- 사용자가 정상적인 사이트를 보기까지 시간이 오래 걸림 -->
+    </body>
+</html>
