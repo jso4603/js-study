@@ -55,16 +55,29 @@
             </div>
         </div>
 
+        <div class="button-div__background">
+            <button id="background-change__btn">배경화면 변경</button>
+            <button id="background-cancel__btn">X</button>
+        </div>
+
         <div class="main-div">
             <div class="main-div__name">
-                <span>이름을 입력하세요 : </span>
-                <input type="text" />
+                <form id="name-form" class="form">
+                    <span>이름을 입력하세요 : </span>
+                    <input id="name-input" type="text" required />
+                </form>
+            </div>
+            <div class="main-div__todo-section">
+                <span class="main-div__todo-title">- 해야할 일-</span>
+                <div class="main-div__todo-list"></div>
             </div>
         </div>
 
         <div class="footer-div">
             <div class="input-div">
-                <input type="text" placeholder="해야할 일을 입력하세요!" />
+                <form id="todo-form" class="form">
+                    <input id="todo-input" type="text" placeholder="해야할 일을 입력하세요!" required />
+                </form>
             </div>
 
             <div class="info-div">
@@ -72,15 +85,20 @@
                     <span>한글-2</span>
                 </div>
                 <div class="info-div__center">
-                    <span>장상옥님, 반갑습니다!</span>
-                    <span>날씨 : 12 ℃ | Kwangmyŏng | Clouds</span>
+                    <span id="user-info" class="info"></span>
+                    <span id="weather-info" class="info"></span>
                 </div>
                 <div class="info-div__right">
-                    <span>00:31</span>
+                    <span id="clock-info">00:00:00</span>
                 </div>
             </div>
         </div>
 
         <script src="https://kit.fontawesome.com/a3ad57350a.js" crossorigin="anonymous"></script>
+        <script src="js/name.js"></script>
+        <script src="js/clock.js"></script>
+        <script src="js/weather.js"></script>
+        <script src="js/background.js"></script>
+        <script src="js/todo.js"></script>
     </body>
 </html>
