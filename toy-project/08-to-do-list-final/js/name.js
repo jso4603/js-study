@@ -2,6 +2,7 @@ const nameForm = document.getElementById('name-form');
 const toDoForm = document.getElementById('todo-form');
 const nameInput = document.getElementById('name-input');
 const userInfo = document.getElementById('user-info');
+const toDoTitle = document.querySelector('.main-div__todo-title');
 
 const NAME_LOCALSTORAGE = 'name',
     showing = 'showing';
@@ -9,6 +10,7 @@ const NAME_LOCALSTORAGE = 'name',
 // todo를 입력할 수 있는 form을 출력하는 함수
 function printTodoForm() {
     toDoForm.classList.add(showing);
+    toDoTitle.classList.add(showing);
 }
 
 // 이름을 출력하는 함수
