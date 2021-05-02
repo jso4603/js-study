@@ -4,18 +4,18 @@
     어떤 상황인지에 따라서 의미(값)이 바뀐다.
 */
 
-// let myName = 'window name';
+// globalThis.myName = 'window name';
 
 // function log() {
 //     console.log(this.myName);
 // }
 
-// let obj = {
+// var obj = {
 //     myName: 'jasn',
 //     logName: log,
 // };
 
-// log(); // undefined
+// log(); // window name
 // obj.logName(); // jasn
 
 /*
@@ -40,13 +40,13 @@
 //     console.log(this); // stric mode에서 this는 undefined
 // }
 
-// foo();
+// foo(); // undefined
 
 // ==========================================================================================
 
 // Example #3 함수 방식으로 this를 부르면 this는 window
 
-// let age = 100;
+// globalThis.age = 100;
 
 // function foo() {
 //     let age = 99;
@@ -54,8 +54,8 @@
 // }
 
 // function bar() {
-//     console.log(this.age); // undefined(this === window)
-//                            // 'use strict' 을 쓰면 error
+//     console.log(this.age); // 100
+//     // 'use strict' 을 쓰면 age가 정의되지 않았다고 error가 뜬다.
 // }
 
 // foo();
@@ -68,7 +68,7 @@
 
 // // Example #1
 
-// let age = 100;
+// globalThis.age = 100;
 
 // let jasn = {
 //     age: 31,
@@ -87,7 +87,7 @@
 //     console.log(this.age);
 // }
 
-// let age = 100;
+// globalThis.age = 100;
 
 // let jasn = {
 //     age: 31,
@@ -100,13 +100,13 @@
 // };
 
 // jasn.foo(); // 31 (점으로 불렀을 때 this는 점 앞의 객체)
-// ken.foo(); // 35
+// ken.foo(); // 35 (점으로 불렀을 때 this는 점 앞의 객체)
 
 // ==========================================================================================
 
 // // Example #3 dot notation vs 일반 함수 방식
 
-// let age = 100;
+// globalThis.age = 100;
 
 // let jasn = {
 //     age: 31,
@@ -124,7 +124,7 @@
 
 // jasn.foo(); // 31 (점으로 불렀을 때 this는 점 앞의 객체)
 // ken.foo(); // 35
-// foo(); // undefined(일반함수 방식일 때 this는 윈도우)
+// foo(); // 100(일반함수 방식일 때 this는 윈도우)
 
 // =================================================================================
 
@@ -138,7 +138,7 @@
 
 // // Example #1
 
-// let age = 100;
+// globalThis.age = 100;
 
 // function foo() {
 //     console.log(this.age);
@@ -152,7 +152,7 @@
 //     age: 31,
 // };
 
-// foo(); // undefined
+// foo(); // 100
 // foo.call(ken); // 35
 // foo.apply(jasn); // 31
 
@@ -160,7 +160,7 @@
 
 // // Example #2 this === function의 첫 번째 인자
 
-// let age = 100;
+// globalThis.age = 100;
 
 // function foo(a, b, c, d, e) {
 //     console.log(this.age);
@@ -173,17 +173,17 @@
 
 // // call은 인자의 수가 정해져 있지 않다.
 // // 첫 번째 인자 : this , 나머지 : arguments
-// foo.call(jasn, 1, 2, 3, 4, 5); // 31 , arguments
+// foo.call(jasn, 1, 2, 3, 4, 5); // 31 , [Arguments] { '0': 1, '1': 2, '2': 3, '3': 4, '4': 5 }
 
 // // apply는 인자를 두 개만 받는다.
 // // 첫 번째 인자 : this , 두 번째 인자 : 무조건 배열(배열의 요소들이 arguments)
-// foo.apply(jasn, [1, 2, 3, 4, 5]); // 31, arguments
+// foo.apply(jasn, [1, 2, 3, 4, 5]); // 31, [Arguments] { '0': 1, '1': 2, '2': 3, '3': 4, '4': 5 }
 
 // =================================================================================
 
 // // Example #3
 
-// let age = 100;
+// globalThis.age = 100;
 
 // function foo() {
 //     console.log(this.age);
@@ -196,14 +196,14 @@
 // // bind는 바로 함수를 실행하지 않는다. 인자로 받은 객체를 this로 설정하고 함수를 반환
 // // 첫 번째 인자 : this
 // let bar = foo.bind(jasn);
-// 함수를 실행
+// // 함수를 실행
 // bar(); // 31
 
 // =================================================================================
 
 // // Example #4
 
-// let age = 100;
+// globalThis.age = 100;
 
 // function foo() {
 //     console.log(this.age);
